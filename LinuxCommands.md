@@ -1,4 +1,4 @@
-#Filesystem
+# Filesystem
 
 - List filesystems
 ```
@@ -18,7 +18,7 @@ umount /dev/sd<?>
 dd bs=4M if=<iso> of=/dev/sd<?> conv=fdatasync status=progress
 ```
 
-#Package management
+# Package management
 - Full delete
 ```
 apt --purge remove "package-name*"
@@ -41,7 +41,7 @@ pstree -p
 ps -ejH
 ```
 
-#SSL
+# SSL
 - renew particular cert 
 ```
 certbot renew --dry-run --cert-name <cert_name>
@@ -51,7 +51,7 @@ certbot renew --dry-run --cert-name <cert_name>
 certbot renew --post-hook "systemctl restart nginx"
 ```
 
-#Docker
+# Docker
 - Kill all running containers
 ```
 docker kill $(docker ps -q)
@@ -66,7 +66,7 @@ docker exec -i <container_name> mysql -u<username> -p<password> --database <data
 docker-compose -f ./docker-compose.yml exec -T <service-name> ./vendor/bin/psalm-language-server
 ```
 
-#Network
+# Network
 
 - Check DNS text record ```dig```
 - Scan ports ```nmap -A -Pn <ip>```
@@ -74,12 +74,12 @@ docker-compose -f ./docker-compose.yml exec -T <service-name> ./vendor/bin/psalm
 - Show local ports ```sudo netstat -tulpn```
 - Resolve host ip and mail exchanger ```host <host>```
 
-#Archives
+# Archives
 - Compress folder ```tar -zcf <archive_name.tar.gz> <folder>```
 - Decompress folder ```tar -zxf <archive_name.tar.gz>```
 - Decompress to stdout ```gzip -dc <archive_name.gz>```
 
-#SSH
+# SSH
 - Copy remote file
 ```
 scp -P<port> <user>@<host>:<remote_path> <local_path>
@@ -91,7 +91,7 @@ ssh -p <ssh-port> -i ~/.ssh/<private_key> -N \
 <ssh-user>@<ssh-server-ip>
 ```
 
-#Databases
+# Databases
 
 #### MySQL
 
@@ -107,11 +107,10 @@ mysqldump --login-path=local --skip-lock-tables <database> | gzip > backup.sql.g
 
 - Reload configs ```sudo /etc/init.d/mysql reload```
 
-#Misc
+# Misc
 
 - Set ACL ```setfacl -R -m u:<user>:rwx <directory_path>```
 - Print all locks ```lslocks```
 - Find file ```find <from_path> -name "file*.php"```
 - Where de f*ck is it placed ```readlink -f <symlink>```
 - Что где когда ```whereis``` ```which```
-
