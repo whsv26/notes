@@ -40,10 +40,11 @@ apt autoclean
 
 - Search package ```apt search <package>```
 
-# OS info
+# OS
 - Full system info ```dmidecode```
 - CPU info ```lscpu```
 - Running services ```service --status-all```
+- Show systemd logs ```journalctl```
 - Find out whick filesystem your drive mounted on
     ```
     df -h | grep <usb-name>
