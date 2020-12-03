@@ -18,6 +18,18 @@ umount /dev/sd<?>
 dd bs=4M if=<iso> of=/dev/sd<?> conv=fdatasync status=progress
 ```
 
+- Formatting drive
+  ```
+  mkfs.(bfs|cramfs|ext2|ext3|ext4|f22fs|fat|minix|msdos|ntfs|vfat) /dev/sdb
+  ```
+
+  _Example formatting usb drive_
+    - Find out whick filesystem your drive mounted on: `df -h | grep <usb-name>`
+    
+      _Output_: `/dev/sdb1 - - - /media/<user>/<usb-name>`
+    - Unmount it: `umount /dev/sdb1`
+    - Format the drive: `mkfs.ext4 /dev/sdb1`
+
 # Package management
 - Full delete
 ```
@@ -32,7 +44,22 @@ apt autoclean
 - Full system info ```dmidecode```
 - CPU info ```lscpu```
 - Running services ```service --status-all```
-
+- Find out whick filesystem your drive mounted on
+    ```
+    df -h | grep <usb-name>
+    ```
+    Output is:
+    ```
+    /dev/sdb1 ... ... ... /media/<user>/<usb-name>
+    ```
+    - Unmount it
+    ```
+    umount /dev/sdb1
+    ```
+    - Format the drive
+    ```
+    mkfs.ext4 /dev/sdb1
+    ```
 # Process
 
 ```
