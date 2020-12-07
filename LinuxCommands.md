@@ -43,6 +43,7 @@ apt autoclean
 # OS
 - Full system info ```dmidecode```
 - CPU info ```lscpu```
+- RAM info ```dmidecode --type memory | less```
 - Running services ```service --status-all```
 - Show systemd logs ```journalctl```
 - Find out whick filesystem your drive mounted on
