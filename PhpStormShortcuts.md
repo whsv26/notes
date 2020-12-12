@@ -1,6 +1,15 @@
-- Go to line ```CTRL+G```
+### Common 
 - Focus between project tree and code ```ALT+1``` and ```ESC```
-- Find usages ```ALT+SHIFT+7```
-- Show psalm inspection ```CTRL+F1```
-- Go to definition ```CTRL+B```
 - Close tab ```CTRL+F4```
+- Show psalm inspection ```CTRL+F1```
+
+### Searching
+- Search all ```SHIFT+SHIFT```
+- Search class ```CTRL+N```
+- Search file ```CTRL+SHIFT+N```
+- Go to line ```CTRL+G```
+- Find usages ```ALT+SHIFT+7```
+- Go to definition ```CTRL+B```
+
+### Database
+- Connection properties ```SHIFT+ENTER```
