@@ -1,42 +1,42 @@
 # Filesystem
 
 - List filesystems
-```
-list filesystems
-lsblk 
-fdisk -l
-```
+  ```console
+  whsv26@whsv26:~$ list filesystems
+  whsv26@whsv26:~$ lsblk 
+  whsv26@whsv26:~$ fdisk -l
+  ```
 
 - Mounting
-```
-unmount
-umount /dev/sd<?>
-```
+  ```console
+  whsv26@whsv26:~$ unmount
+  whsv26@whsv26:~$ umount /dev/sd<?>
+  ```
 
 - ISO to flash drive
-```
-dd bs=4M if=<iso> of=/dev/sd<?> conv=fdatasync status=progress
-```
+  ```console
+  whsv26@whsv26:~$ dd bs=4M if=<iso> of=/dev/sd<?> conv=fdatasync status=progress
+  ```
 
 - Formatting drive
+  ```console
+  whsv26@whsv26:~$ mkfs.(bfs|cramfs|ext2|ext3|ext4|f22fs|fat|minix|msdos|ntfs|vfat) /dev/sdb
   ```
-  mkfs.(bfs|cramfs|ext2|ext3|ext4|f22fs|fat|minix|msdos|ntfs|vfat) /dev/sdb
+- Format USB drive
+  ```console
+    whsv26@whsv26:~$ df -h | grep <usb-name>
+    /dev/sdb1 - - - /media/<user>/<usb-name>
+    whsv26@whsv26:~$ umount /dev/sdb1
+    whsv26@whsv26:~$ mkfs.ext4 /dev/sdb1
   ```
-
-  _Example formatting usb drive_
-    - Find out whick filesystem your drive mounted on: `df -h | grep <usb-name>`
-    
-      _Output_: `/dev/sdb1 - - - /media/<user>/<usb-name>`
-    - Unmount it: `umount /dev/sdb1`
-    - Format the drive: `mkfs.ext4 /dev/sdb1`
 
 # Package management
 - Full delete
-```
-apt --purge remove "package-name*"
-apt autoremove
-apt autoclean
-```
+  ```console
+  whsv26@whsv26:~$ apt --purge remove "package-name*"
+  whsv26@whsv26:~$ apt autoremove
+  whsv26@whsv26:~$ apt autoclean
+  ```
 
 - Search package ```apt search <package>```
 
@@ -46,54 +46,42 @@ apt autoclean
 - RAM info ```dmidecode --type memory | less```
 - Running services ```service --status-all```
 - Show systemd logs ```journalctl```
-- Find out whick filesystem your drive mounted on
-    ```
-    df -h | grep <usb-name>
-    ```
-    Output is:
-    ```
-    /dev/sdb1 ... ... ... /media/<user>/<usb-name>
-    ```
-    - Unmount it
-    ```
-    umount /dev/sdb1
-    ```
-    - Format the drive
-    ```
-    mkfs.ext4 /dev/sdb1
-    ```
+
 # Process
 
-```
-print process tree
-pstree -p
-ps -ejH
+```console
+whsv26@whsv26:~$ print process tree
+whsv26@whsv26:~$ pstree -p
+whsv26@whsv26:~$ ps -ejH
 ```
 
 # SSL
 - renew particular cert 
-```
-certbot renew --dry-run --cert-name <cert_name>
-```
+  ```console
+  whsv26@whsv26:~$ certbot renew --dry-run --cert-name <cert_name>
+  ```
+
 - renew all certs and restart nginx 
-```
-certbot renew --post-hook "systemctl restart nginx"
-```
+  ```console
+  whsv26@whsv26:~$ certbot renew --post-hook "systemctl restart nginx"
+  ```
 
 # Docker
 - Kill all running containers
-```
-docker kill $(docker ps -q)
-```
+  ```console
+  whsv26@whsv26:~$ docker kill $(docker ps -q)
+  ```
+
 - Import to mysql container with progress bar
-```
-pv ./dump.sql.gz | gunzip | \
-docker exec -i <container_name> mysql -u<username> -p<password> --database <database>
-```
+  ```console
+  whsv26@whsv26:~$ pv ./dump.sql.gz | gunzip | \
+  docker exec -i <container_name> mysql -u<username> -p<password> --database <database>
+  ```
+
 - Psalm language server from docker container
-```
-docker-compose -f ./docker-compose.yml exec -T <service-name> ./vendor/bin/psalm-language-server
-```
+  ```console
+  whsv26@whsv26:~$ docker-compose exec -T <service-name> ./vendor/bin/psalm-language-server
+  ```
 
 # Network
 
@@ -110,29 +98,30 @@ docker-compose -f ./docker-compose.yml exec -T <service-name> ./vendor/bin/psalm
 
 # SSH
 - Copy remote file
-```
-scp -P<port> <user>@<host>:<remote_path> <local_path>
-```
+  ```console
+  whsv26@whsv26:~$ scp -P<port> <user>@<host>:<remote_path> <local_path>
+  ```
+
 - Open ssh-tunnel
-```
-ssh -p <ssh-port> -i ~/.ssh/<private_key> -N \ 
--L <local-port>:<remote-ip>:<remote-port> \
-<ssh-user>@<ssh-server-ip>
-```
+  ```console
+  whsv26@whsv26:~$ ssh -p <ssh-port> -i ~/.ssh/<private_key> -N \ 
+  -L <local-port>:<remote-ip>:<remote-port> \
+  <ssh-user>@<ssh-server-ip>
+  ```
 
 # Databases
 
 #### MySQL
 
 - Dump with condition
-```
-mysqldump --skip-lock-tables -P<port> -h<host> -u<user> -p<password> <database> <table> --where="condition" | gzip > backup.sql.gz
-```
+  ```console
+  whsv26@whsv26:~$ mysqldump --skip-lock-tables -P<port> -h<host> -u<user> -p<password> <database> <table> --where="condition" | gzip > backup.sql.gz
+  ```
 
 - Dump without exposed credentials
-```
-mysqldump --login-path=local --skip-lock-tables <database> | gzip > backup.sql.gz
-``` 
+  ```console
+  whsv26@whsv26:~$ mysqldump --login-path=local --skip-lock-tables <database> | gzip > backup.sql.gz
+  ``` 
 
 - Reload configs ```sudo /etc/init.d/mysql reload```
 
@@ -141,5 +130,5 @@ mysqldump --login-path=local --skip-lock-tables <database> | gzip > backup.sql.g
 - Set ACL ```setfacl -R -m u:<user>:rwx <directory_path>```
 - Print all locks ```lslocks```
 - Find file ```find <from_path> -name "file*.php"```
-- Where de f*ck is it placed ```readlink -f <symlink>```
+- Where the f*ck is it placed ```readlink -f <symlink>```
 - Что где когда ```whereis``` ```which```
