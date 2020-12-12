@@ -1,33 +1,50 @@
 # Filesystem
 
+- List character devices
+  ```console
+  whsv26@whsv26:~$ sed -n '/^Character/, /^$/ { /^$/ !p }' /proc/devices
+  ```
+
+- List block devices
+  ```console
+  whsv26@whsv26:~$ sed -n '/^Block/, /^$/ { /^$/ !p }' /proc/devices
+  ```
+
+- List block devices in tree format with disk/part separation
+  ```console
+  whsv26@whsv26:~$ list lsblk
+  ```
+  
 - List filesystems
   ```console
   whsv26@whsv26:~$ list filesystems
-  whsv26@whsv26:~$ lsblk 
-  whsv26@whsv26:~$ fdisk -l
+  whsv26@whsv26:~$ sudo fdisk -l
   ```
 
 - Mounting
   ```console
-  whsv26@whsv26:~$ unmount
-  whsv26@whsv26:~$ umount /dev/sd<?>
+  whsv26@whsv26:~$ DEVICE="/dev/sdb"
+  whsv26@whsv26:~$ unmount $DEVICE
   ```
 
 - ISO to flash drive
   ```console
-  whsv26@whsv26:~$ dd bs=4M if=<iso> of=/dev/sd<?> conv=fdatasync status=progress
+  whsv26@whsv26:~$ ISO="ubuntu.iso" && DEVICE="/dev/sdb"
+  whsv26@whsv26:~$ dd bs=4M if=$ISO of=$DEVICE conv=fdatasync status=progress
   ```
 
 - Formatting drive
   ```console
-  whsv26@whsv26:~$ mkfs.(bfs|cramfs|ext2|ext3|ext4|f22fs|fat|minix|msdos|ntfs|vfat) /dev/sdb
+  whsv26@whsv26:~$ FS="bfs|cramfs|ext2|ext3|ext4|f22fs|fat|minix|msdos|ntfs|vfat"
+  whsv26@whsv26:~$ mkfs.$FS /dev/sdb
   ```
 - Format USB drive
   ```console
-    whsv26@whsv26:~$ df -h | grep <usb-name>
-    /dev/sdb1 - - - /media/<user>/<usb-name>
-    whsv26@whsv26:~$ umount /dev/sdb1
-    whsv26@whsv26:~$ mkfs.ext4 /dev/sdb1
+  whsv26@whsv26:~$ USB="/dev/sdb1"
+  whsv26@whsv26:~$ df -h | grep $USB
+  /dev/sdb1 - - - /media/<user>/$USB
+  whsv26@whsv26:~$ umount /dev/sdb1
+  whsv26@whsv26:~$ mkfs.ext4 /dev/sdb1
   ```
 
 # Package management
