@@ -92,8 +92,7 @@ whsv26@whsv26:~$ ps -ejH
 
 - Import to mysql container with progress bar
   ```console
-  whsv26@whsv26:~$ pv ./dump.sql.gz | gunzip | \
-  docker exec -i $CONTAINER_NAME mysql -u$USERNAME -p$PASSWORD --database $DATABASE
+  whsv26@whsv26:~$ pv ./dump.sql.gz | gunzip | docker exec -i $CONTAINER_NAME mysql -u$USERNAME -p$PASSWORD --database $DATABASE
   ```
 
 - Psalm language server from docker container
@@ -122,9 +121,7 @@ whsv26@whsv26:~$ ps -ejH
 
 - Open ssh-tunnel
   ```console
-  whsv26@whsv26:~$ ssh -p $SSH_PORT -i ~/.ssh/$PRIVATE_KEY -N \ 
-  -L $LOCAL_PORT:$REMOTE_IP:$REMOTE_PORT \
-  $SSH_USER@$SSH_SERVER_IP
+  whsv26@whsv26:~$ ssh -p $SSH_PORT -i ~/.ssh/$PRIVATE_KEY -N -L $LOCAL_PORT:$REMOTE_IP:$REMOTE_PORT $SSH_USER@$SSH_SERVER_IP
   ```
 
 # Databases
