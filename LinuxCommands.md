@@ -12,7 +12,7 @@
 
 - List block devices in tree format with disk/part separation
   ```console
-  whsv26@whsv26:~$ list lsblk
+  whsv26@whsv26:~$ lsblk
   ```
   
 - List filesystems
@@ -40,22 +40,23 @@
   ```
 - Format USB drive
   ```console
-  whsv26@whsv26:~$ USB="/dev/sdb1"
-  whsv26@whsv26:~$ df -h | grep $USB
-  /dev/sdb1 - - - /media/<user>/$USB
-  whsv26@whsv26:~$ umount /dev/sdb1
-  whsv26@whsv26:~$ mkfs.ext4 /dev/sdb1
+  whsv26@whsv26:~$ lsblk
+  sdc      8:32   1   7,2G  0 disk 
+  └─sdc1   8:33   1   7,2G  0 part /media/whsv26/E0C9-E6FB
+  whsv26@whsv26:~$ umount /dev/sdc1
+  whsv26@whsv26:~$ mkfs.ext4 /dev/sdc1
   ```
 
 # Package management
 - Full delete
   ```console
-  whsv26@whsv26:~$ apt --purge remove "package-name*"
+  whsv26@whsv26:~$ PACKAGE="package-name"
+  whsv26@whsv26:~$ apt --purge remove "$PACKAGE*"
   whsv26@whsv26:~$ apt autoremove
   whsv26@whsv26:~$ apt autoclean
   ```
 
-- Search package ```apt search <package>```
+- Search package ```apt search $PACKAGE```
 
 # OS
 - Full system info ```dmidecode```
@@ -75,7 +76,7 @@ whsv26@whsv26:~$ ps -ejH
 # SSL
 - renew particular cert 
   ```console
-  whsv26@whsv26:~$ certbot renew --dry-run --cert-name <cert_name>
+  whsv26@whsv26:~$ certbot renew --dry-run --cert-name $CERT_NAME
   ```
 
 - renew all certs and restart nginx 
@@ -92,38 +93,38 @@ whsv26@whsv26:~$ ps -ejH
 - Import to mysql container with progress bar
   ```console
   whsv26@whsv26:~$ pv ./dump.sql.gz | gunzip | \
-  docker exec -i <container_name> mysql -u<username> -p<password> --database <database>
+  docker exec -i $CONTAINER_NAME mysql -u$USERNAME -p$PASSWORD --database $DATABASE
   ```
 
 - Psalm language server from docker container
   ```console
-  whsv26@whsv26:~$ docker-compose exec -T <service-name> ./vendor/bin/psalm-language-server
+  whsv26@whsv26:~$ docker-compose exec -T $SERVICE_NAME ./vendor/bin/psalm-language-server
   ```
 
 # Network
 
 - Check DNS text record ```dig```
-- Scan ports ```nmap -A -Pn <ip>```
-- Check port ```nmap -vv -Pn -p <port> <ip>```
+- Scan ports ```nmap -A -Pn $IP```
+- Check port ```nmap -vv -Pn -p $PORT $IP```
 - Show local ports ```sudo netstat -tulpn```
-- Resolve host ip and mail exchanger ```host <host>```
+- Resolve host ip and mail exchanger ```host $HOST```
 
 # Archives
-- Compress folder ```tar -zcf <archive_name.tar.gz> <folder>```
-- Decompress folder ```tar -zxf <archive_name.tar.gz>```
-- Decompress to stdout ```gzip -dc <archive_name.gz>```
+- Compress folder ```tar -zcf $ARCHIVE_NAME.tar.gz $FOLDER```
+- Decompress folder ```tar -zxf $ARCHIVE_NAME.tar.gz```
+- Decompress to stdout ```gzip -dc $ARCHIVE_NAME.gz```
 
 # SSH
 - Copy remote file
   ```console
-  whsv26@whsv26:~$ scp -P<port> <user>@<host>:<remote_path> <local_path>
+  whsv26@whsv26:~$ scp -P$PORT $USER@$HOST:$REMOTE_PATH $LOCAL_PATH
   ```
 
 - Open ssh-tunnel
   ```console
-  whsv26@whsv26:~$ ssh -p <ssh-port> -i ~/.ssh/<private_key> -N \ 
-  -L <local-port>:<remote-ip>:<remote-port> \
-  <ssh-user>@<ssh-server-ip>
+  whsv26@whsv26:~$ ssh -p $SSH_PORT -i ~/.ssh/$PRIVATE_KEY -N \ 
+  -L $LOCAL_PORT:$REMOTE_IP:$REMOTE_PORT \
+  $SSH_USER@$SSH_SERVER_IP
   ```
 
 # Databases
@@ -132,20 +133,20 @@ whsv26@whsv26:~$ ps -ejH
 
 - Dump with condition
   ```console
-  whsv26@whsv26:~$ mysqldump --skip-lock-tables -P<port> -h<host> -u<user> -p<password> <database> <table> --where="condition" | gzip > backup.sql.gz
+  whsv26@whsv26:~$ mysqldump --skip-lock-tables -P$PORT -h$HOST -u$USER -p$PASSWORD $DATABASE $TABLE --where="condition" | gzip > backup.sql.gz
   ```
 
 - Dump without exposed credentials
   ```console
-  whsv26@whsv26:~$ mysqldump --login-path=local --skip-lock-tables <database> | gzip > backup.sql.gz
+  whsv26@whsv26:~$ mysqldump --login-path=local --skip-lock-tables $DATABASE | gzip > backup.sql.gz
   ``` 
 
 - Reload configs ```sudo /etc/init.d/mysql reload```
 
 # Misc
 
-- Set ACL ```setfacl -R -m u:<user>:rwx <directory_path>```
+- Set ACL ```setfacl -R -m u:$USER:rwx $DIRECTORY_PATH```
 - Print all locks ```lslocks```
-- Find file ```find <from_path> -name "file*.php"```
-- Where the f*ck is it placed ```readlink -f <symlink>```
+- Find file ```find $FROM_PATH -name "file*.php"```
+- Where the f*ck is it placed ```readlink -f $SYMLINK```
 - Что где когда ```whereis``` ```which```
