@@ -65,6 +65,12 @@
 - Running services ```service --status-all```
 - Show systemd logs ```journalctl```
 
+
+- Identify a kernel [@see](https://ubuntu.com/kernel) 
+  ```console 
+    whsv26@whsv26:~$ cat /proc/version_signature
+  ``` 
+
 # Process
 
 - Print process tree
@@ -180,7 +186,7 @@
   whsv26@whsv26:~$ which
   ```
 
-- Compile GraphQL schema to html 
+- Compile GraphQL schema to html [@dependency](https://github.com/2fd/graphdoc)
   ```console
   whsv26@whsv26:~$ SCHEMA="schema.graphql" && DIR="doc/schema" 
   whsv26@whsv26:~$ graphdoc -s $SCHEMA -o $DIR
