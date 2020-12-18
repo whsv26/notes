@@ -1,7 +1,4 @@
 # LinuxCommands
-
-
----
 **Contents**
 - [Archives](#Archives)
 - [Databases](#Databases)
