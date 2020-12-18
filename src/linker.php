@@ -37,8 +37,6 @@ foreach ($dirs as $dir) {
 
     file_put_contents($to, implode(PHP_EOL, [
         '# ' . basename($dir),
-        PHP_EOL,
-        '---',
         '**Contents**',
         $refMap,
         $contents
