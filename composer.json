@@ -1,0 +1,20 @@
+{
+    "name": "whsv26/notes",
+    "description": "PHP developer notes",
+    "type": "metapackage",
+    "authors": [
+        {
+            "name": "whsv26",
+            "email": "whsv26@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "lstrojny/functional-php": "^1.14",
+        "symfony/process": "^5.2",
+        "symfony/string": "^5.2"
+    },
+    "autoload": {
+        "classmap": ["src"]
+    }
+}
