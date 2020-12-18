@@ -1,3 +1,60 @@
+- [Filesystem](#Filesystem)
+  - List character devices
+  - List block devices
+  - List block devices in tree format with disk/part separation
+  - List filesystems
+  - Mounting
+  - ISO to flash drive
+  - Formatting drive
+  - Format USB drive
+- [Package management](#Package-management)
+  - Full delete
+  - Search package ```apt search $PACKAGE```
+- [OS](#OS)
+  - Full system info ```dmidecode```
+  - CPU info ```lscpu```
+  - RAM info ```dmidecode --type memory | less```
+  - Running services ```service --status-all```
+  - Show systemd logs ```journalctl```
+  - Identify a kernel [@see](https://ubuntu.com/kernel)
+- [Process](#Process)
+  - Print process tree
+  - Watch processes by pattern
+  - Detailed process RAM usage
+- [SSL](#SSL)
+  - renew particular cert
+  - renew all certs and restart nginx
+- [Docker](#Docker)
+  - Kill all running containers
+  - Import to mysql container with progress bar
+  - Psalm language server from docker container
+- [Network](#Network)
+  - Check DNS text record ```dig```
+  - Scan ports ```nmap -A -Pn $IP```
+  - Check port ```nmap -vv -Pn -p $PORT $IP```
+  - Show local ports ```sudo netstat -tulpn```
+  - Resolve host ip and mail exchanger ```host $HOST```
+- [Archives](#Archives)
+  - Compress folder ```tar -zcf $ARCHIVE_NAME.tar.gz $FOLDER```
+  - Decompress folder ```tar -zxf $ARCHIVE_NAME.tar.gz```
+  - Decompress to stdout ```gzip -dc $ARCHIVE_NAME.gz```
+- [SSH](#SSH)
+  - Copy remote file
+  - Open ssh-tunnel
+  - Pem file from private key
+- [Databases](#Databases)
+- [MySQL](#MySQL)
+  - Dump with condition
+  - Dump without exposed credentials
+  - Reload configs ```sudo /etc/init.d/mysql reload```
+- [Misc](#Misc)
+  - Set ACL
+  - Print all locks
+  - Find file
+  - Where the f*ck is it placed
+  - Что где когда
+  - Compile GraphQL schema to html [@dependency](https://github.com/2fd/graphdoc)
+
 # Filesystem
 
 - List character devices
