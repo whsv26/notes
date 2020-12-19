@@ -7,4 +7,7 @@
   whsv26@whsv26:~$ apt autoclean
   ```
 
-- #### Search package ```apt search $PACKAGE```
+- #### Search package
+  ```console
+  whsv26@whsv26:~$ apt search $PACKAGEapt search $PACKAGE
+  ```
