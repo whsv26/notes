@@ -13,7 +13,7 @@ use function Functional\map;
 /**
  * @psalm-type Header = array {
  *     header: string,
- *     elements: array<string>
+ *     subheaders: array<string>
  * }
  */
 class Parser implements Monad

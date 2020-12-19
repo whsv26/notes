@@ -14,7 +14,7 @@ use function Symfony\Component\String\u;
 /**
  * @psalm-type Header = array {
  *     header: string,
- *     elements: array<string>
+ *     subheaders: array<string>
  * }
  * @param string $path
  * @return array<Header>
@@ -30,25 +30,25 @@ function parseHeaders(string $path): array
                 ->trimStart()
                 ->startsWith('# ');
 
-            $isListElement = u($line)
+            $isSubHeader = u($line)
                 ->trimStart()
-                ->startsWith('- ');
+                ->startsWith('- #### ');
 
             if ($isHeader) {
                 return [...$headers, [
                     'header' => u($line)->trim()->after('# ')->toString(),
-                    'elements' => []
+                    'subheaders' => []
                 ]];
             }
 
-            if ($isListElement) {
+            if ($isSubHeader) {
                 $lastHeader = array_pop($headers);
 
                 return [...$headers, [
                     'header'   => $lastHeader['header'],
-                    'elements' => [
-                        ...$lastHeader['elements'],
-                        u($line)->trim()->after('- ')->toString()
+                    'subheaders' => [
+                        ...$lastHeader['subheaders'],
+                        u($line)->trim()->after('- #### ')->toString()
                     ],
                 ]];
             }
@@ -79,11 +79,14 @@ foreach ($dirs as $dir) {
                 ->replace(' ', '-')
                 ->toString();
 
-            $elements = reduce_left(
-                $header['elements'],
-                fn (string $element, int $key, array $collection, string $acc): string => implode(PHP_EOL, [
+            $subheaders = reduce_left(
+                $header['subheaders'],
+                fn (string $subheader, int $key, array $collection, string $acc): string => implode(PHP_EOL, [
                     $acc,
-                    "  - [$element]($element)",
+                    sprintf("  - [%s](#%s)", ...[
+                        $subheader,
+                        u($subheader)->replace(' ', '-')->toString()
+                    ]),
                 ]),
                 ''
             );
@@ -91,7 +94,7 @@ foreach ($dirs as $dir) {
             return implode(PHP_EOL, [
                 $acc,
                 "- [{$header['header']}](#$ref)",
-                $elements,
+                $subheaders,
             ]);
         },
         ''
