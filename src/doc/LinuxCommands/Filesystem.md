@@ -10,7 +10,7 @@
   whsv26@whsv26:~$ sed -n '/^Block/, /^$/ { /^$/ !p }' /proc/devices
   ```
 
-- #### List block devices in tree format with disk and part separation
+- #### List block devices with disk and part separation
   ```console
   whsv26@whsv26:~$ lsblk
   ```
