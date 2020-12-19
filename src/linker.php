@@ -8,6 +8,8 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Process\Process;
 
+use function Functional\filter;
+use function Functional\map;
 use function Functional\reduce_left;
 use function Symfony\Component\String\u;
 
@@ -32,15 +34,15 @@ function parseHeaders(string $path): array
         };
     };
 
-    foreach ($lines as $line) {
-        $header = $lineToHeader($line);
+    $lines = map($lines, $lineToHeader);
+    $lines = filter($lines, fn (?AbstractMdHeader $header): bool => isset($header));
 
-        if (!$header instanceof AbstractMdHeader) {
-            continue;
-        }
-
-        $parser = $parser->combineOne($header);
-    }
+    $parser = reduce_left(
+        $lines,
+        fn (AbstractMdHeader $header, int $key, array $collection, MdParser $accumulator): MdParser
+            => $accumulator->combineOne($header),
+        $parser
+    );
 
     return $parser->getHeaders();
 }
