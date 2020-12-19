@@ -42,3 +42,5 @@ foreach ($dirs as $dir) {
         $contents
     ]));
 }
+
+echo 'doc has been built' . PHP_EOL;
