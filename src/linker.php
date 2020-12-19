@@ -26,17 +26,14 @@ function parseHeaders(string $path): array
 
     foreach ($lines as $line) {
         $parser = $parser->bind(function (array $headers) use ($line): array {
-            $isHeader = u($line)
-                ->trimStart()
-                ->startsWith('# ');
+            $uLine = u($line)->trim();
 
-            $isSubHeader = u($line)
-                ->trimStart()
-                ->startsWith('- #### ');
+            $isHeader = $uLine->startsWith('# ');
+            $isSubHeader = $uLine->startsWith('- #### ');
 
             if ($isHeader) {
                 return [...$headers, [
-                    'header' => u($line)->trim()->after('# ')->toString(),
+                    'header' => $uLine->after('# ')->toString(),
                     'subheaders' => []
                 ]];
             }
@@ -48,7 +45,7 @@ function parseHeaders(string $path): array
                     'header'   => $lastHeader['header'],
                     'subheaders' => [
                         ...$lastHeader['subheaders'],
-                        u($line)->trim()->after('- #### ')->toString()
+                        $uLine->after('- #### ')->toString()
                     ],
                 ]];
             }
