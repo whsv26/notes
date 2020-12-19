@@ -1,8 +1,6 @@
 # Notes
 PHP developer notes
 
----
-
 ## Contribution
 
 - Install dependencies
