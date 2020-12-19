@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "php": "^7.4",
+        "php": "^8.0",
         "lstrojny/functional-php": "^1.14",
         "symfony/process": "^5.2",
         "symfony/string": "^5.2",

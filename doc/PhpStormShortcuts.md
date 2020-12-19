@@ -1,11 +1,8 @@
 # PhpStormShortcuts
 **Contents**
-
-- [Common](#Common)
-
-- [Searching](#Searching)
-
-- [Database](#Database)
+- [Common](Common)
+- [Searching](Searching)
+- [Database](Database)
 
 # Common
 
