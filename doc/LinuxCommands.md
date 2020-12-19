@@ -15,7 +15,7 @@
 - [Filesystem](Filesystem)
   - [List character devices](List-character-devices)
   - [List block devices](List-block-devices)
-  - [List block devices in tree format with disk/part separation](List-block-devices-in-tree-format-with-disk/part-separation)
+  - [List block devices in tree format with disk and part separation](List-block-devices-in-tree-format-with-disk-and-part-separation)
   - [List filesystems](List-filesystems)
   - [Mounting](Mounting)
   - [ISO to flash drive](ISO-to-flash-drive)
@@ -132,7 +132,7 @@
     whsv26@whsv26:~$ sed -n '/^Block/, /^$/ { /^$/ !p }' /proc/devices
     ```
 
-  - #### List block devices in tree format with disk/part separation
+  - #### List block devices in tree format with disk and part separation
     
     ``` console
     whsv26@whsv26:~$ lsblk
