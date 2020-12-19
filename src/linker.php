@@ -22,11 +22,6 @@ foreach ($dirs as $dir) {
     preg_match_all('/#\s(.+?)$/um', $contents, $matches);
     $headers = $matches[1] ?? [];
 
-    implode(PHP_EOL, [
-        '# ' . basename($dir),
-        '**Contents**',
-    ]);
-
     $refMap = reduce_left($headers, function (string $header, int $key, array $collection, $initial) {
         $ref = u($header)
             ->replace(' ', '-')
