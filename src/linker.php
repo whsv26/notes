@@ -65,8 +65,8 @@ foreach ($dirs as $dir) {
             $headerRef = u($headerTitle)->replace(' ', '-');
 
             return $accumulator . match ($header::class) {
-                MdHeader1::class => "- [$headerTitle]($headerRef)" . PHP_EOL,
-                MdHeader4::class => "  - [$headerTitle]($headerRef)" . PHP_EOL,
+                MdHeader1::class => "- [$headerTitle](#$headerRef)" . PHP_EOL,
+                MdHeader4::class => "  - [$headerTitle](#$headerRef)" . PHP_EOL,
                 default => '',
             };
         },
