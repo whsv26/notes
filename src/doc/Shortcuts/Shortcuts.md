@@ -5,6 +5,7 @@
 - Close tab ```CTRL+F4```
 - Show psalm inspection ```CTRL+F1```
 - Create file ```ALT+Insert```
+- Last tool window ```F12```
 
 #### Searching
 - Search all ```SHIFT+SHIFT```
