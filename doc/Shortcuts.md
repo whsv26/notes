@@ -1,17 +1,21 @@
-# PhpStormShortcuts
+# Shortcuts
 **Contents**
-- [Common](#Common)
-- [Searching](#Searching)
-- [Database](#Database)
+- [PhpStorm](#PhpStorm)
+  - [Common](#Common)
+  - [Searching](#Searching)
+  - [Database](#Database)
+- [Ubuntu](#Ubuntu)
 
-# Common
+# PhpStorm
+
+#### Common
 
   - Focus between project tree and code `ALT+1` and `ESC`
   - Close tab `CTRL+F4`
   - Show psalm inspection `CTRL+F1`
   - Create file `ALT+Insert`
 
-# Searching
+#### Searching
 
   - Search all `SHIFT+SHIFT`
   - Search class `CTRL+N`
@@ -20,6 +24,11 @@
   - Find usages `ALT+SHIFT+7`
   - Go to definition `CTRL+B`
 
-# Database
+#### Database
 
   - Connection properties `SHIFT+ENTER`
+
+# Ubuntu
+
+  - Top bar focus `SUPER+M`
+  - Windows/Top bar/Dash focus `CTRL+ALT+TAB`
