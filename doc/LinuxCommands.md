@@ -42,6 +42,7 @@
   - [Show systemd logs](#Show-systemd-logs)
   - [Identify a kernel](#Identify-a-kernel)
 - [Package management](#Package-management)
+  - [Set alternative version](#Set-alternative-version)
   - [Full delete](#Full-delete)
   - [Search package](#Search-package)
 - [Process](#Process)
@@ -291,6 +292,12 @@
     ```
 
 # Package management
+
+  - #### Set alternative version
+    
+    ``` console
+    whsv26@whsv26:~$ sudo update-alternatives --config php
+    ```
 
   - #### Full delete
     

@@ -1,4 +1,10 @@
 # Package management
+
+- #### Set alternative version
+  ```console
+  whsv26@whsv26:~$ sudo update-alternatives --config php
+  ```
+
 - #### Full delete
   ```console
   whsv26@whsv26:~$ PACKAGE="package-name"
