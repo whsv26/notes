@@ -22,3 +22,8 @@
 # Ubuntu
 - Top bar focus ```SUPER+M```
 - Windows/Top bar/Dash focus ```CTRL+ALT+TAB```
+
+# Chrome
+- Restore tab ```CTRL+SHIFT+T```
+- Move between tabs ```CTRL+TAB``` ```CTRL++SHIFT+TAB```
+- Close tab ```CTRL+F4```
