@@ -15,6 +15,7 @@
   - Show psalm inspection `CTRL+F1`
   - Create file `ALT+Insert`
   - Last tool window `F12`
+  - Git `ALT+9`
 
 #### Searching
 
