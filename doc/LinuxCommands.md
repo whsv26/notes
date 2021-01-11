@@ -52,6 +52,7 @@
   - [Detailed process RAM usage](#Detailed-process-RAM-usage)
 - [SSH](#SSH)
   - [Copy remote file](#Copy-remote-file)
+  - [Upload to remote server](#Upload-to-remote-server)
   - [Open ssh-tunnel](#Open-ssh-tunnel)
   - [Pem file from private key](#Pem-file-from-private-key)
 - [SSL](#SSL)
@@ -349,6 +350,12 @@
     
     ``` console
     whsv26@whsv26:~$ scp -P$PORT $USER@$HOST:$REMOTE_PATH $LOCAL_PATH
+    ```
+
+  - #### Upload to remote server
+    
+    ``` console
+    whsv26@whsv26:~$ scp -P$PORT $LOCAL_PATH $USER@$HOST:$REMOTE_PATH
     ```
 
   - #### Open ssh-tunnel
