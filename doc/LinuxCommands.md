@@ -8,6 +8,7 @@
   - [Dump with condition](#Dump-with-condition)
   - [Dump without exposed credentials](#Dump-without-exposed-credentials)
   - [Reload configs](#Reload-configs)
+  - [Import a table from DB dump](#Import-a-table-from-DB-dump)
 - [Docker](#Docker)
   - [Kill all running containers](#Kill-all-running-containers)
   - [Import to mysql container with progress bar](#Import-to-mysql-container-with-progress-bar)
@@ -97,6 +98,12 @@
     
     ``` console
     whsv26@whsv26:~$ sudo /etc/init.d/mysql reload
+    ```
+
+  - #### Import a table from DB dump
+    
+    ``` console
+    whsv26@whsv26:~$ sed -n -e '/DROP TABLE.*`mytable`/,/UNLOCK TABLES/p' mydump.sql > tabledump.sql
     ```
 
 # Docker

@@ -16,3 +16,8 @@
   ```console
   whsv26@whsv26:~$ sudo /etc/init.d/mysql reload
   ```
+
+- #### Import a table from DB dump
+  ```console
+  whsv26@whsv26:~$ sed -n -e '/DROP TABLE.*`mytable`/,/UNLOCK TABLES/p' mydump.sql > tabledump.sql
+  ```
