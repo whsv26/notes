@@ -12,9 +12,12 @@
 - Search all ```SHIFT+SHIFT```
 - Search class ```CTRL+N```
 - Search file ```CTRL+SHIFT+N```
+- Search action ```CTRL+SHIFT+A```
 - Go to line ```CTRL+G```
 - Find usages ```ALT+SHIFT+7```
 - Go to definition ```CTRL+B```
+- Go to implementation ```CTRL+ALT+B```
+- Go to super method ```CTRL+U```
 
 #### Database
 - Connection properties ```SHIFT+ENTER```
