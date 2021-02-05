@@ -46,3 +46,9 @@
   whsv26@whsv26:~$ umount /dev/sdc1
   whsv26@whsv26:~$ mkfs.ext4 /dev/sdc1
   ```
+
+- #### Mount Google Drive 
+  ```console
+  whsv26@whsv26:~$ google-drive-ocamlfuse $MOUNT_FOLDER
+  ```
+
