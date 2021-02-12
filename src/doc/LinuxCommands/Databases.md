@@ -21,3 +21,10 @@
   ```console
   whsv26@whsv26:~$ sed -n -e '/DROP TABLE.*`mytable`/,/UNLOCK TABLES/p' mydump.sql > tabledump.sql
   ```
+
+- #### Migrate from MySQL to PostgreSQL
+  ```console
+  whsv26@whsv26:~$ pgloader mysql://$USERNAME:$PASSWORD@$HOST:$PORT/$DATABASE postgresql://$USERNAME:$PASSWORD@$HOST:$PORT/$DATABASE
+  ```
+  
+

@@ -9,6 +9,7 @@
   - [Dump without exposed credentials](#Dump-without-exposed-credentials)
   - [Reload configs](#Reload-configs)
   - [Import a table from DB dump](#Import-a-table-from-DB-dump)
+  - [Migrate from MySQL to PostgreSQL](#Migrate-from-MySQL-to-PostgreSQL)
 - [Docker](#Docker)
   - [Kill all running containers](#Kill-all-running-containers)
   - [Import to mysql container with progress bar](#Import-to-mysql-container-with-progress-bar)
@@ -107,6 +108,12 @@
     
     ``` console
     whsv26@whsv26:~$ sed -n -e '/DROP TABLE.*`mytable`/,/UNLOCK TABLES/p' mydump.sql > tabledump.sql
+    ```
+
+  - #### Migrate from MySQL to PostgreSQL
+    
+    ``` console
+    whsv26@whsv26:~$ pgloader mysql://$USERNAME:$PASSWORD@$HOST:$PORT/$DATABASE postgresql://$USERNAME:$PASSWORD@$HOST:$PORT/$DATABASE
     ```
 
 # Docker
