@@ -61,6 +61,9 @@
 - [SSL](#SSL)
   - [renew particular cert](#renew-particular-cert)
   - [renew all certs and restart nginx](#renew-all-certs-and-restart-nginx)
+- [Terminal](#Terminal)
+  - [Terminfo compile description](#Terminfo-compile-description)
+  - [Print terminfo description](#Print-terminfo-description)
 
 # Archives
 
@@ -203,6 +206,7 @@
   - #### Locate file
     
     ``` console
+    whsv26@whsv26:~$ updatedb
     whsv26@whsv26:~$ locate $FILE
     ```
 
@@ -403,4 +407,18 @@
     
     ``` console
     whsv26@whsv26:~$ certbot renew --post-hook "systemctl restart nginx"
+    ```
+
+# Terminal
+
+  - #### Terminfo compile description
+    
+    ``` console
+    whsv26@whsv26:~$ tic -xe $ENTRY $DOTINFO
+    ```
+
+  - #### Print terminfo description
+    
+    ``` console
+    whsv26@whsv26:~$ infocmp $ENTRY
     ```
