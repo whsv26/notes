@@ -23,6 +23,7 @@
   - [Formatting drive](#Formatting-drive)
   - [Format USB drive](#Format-USB-drive)
   - [Mount Google Drive](#Mount-Google-Drive)
+  - [Locate file](#Locate-file)
 - [Misc](#Misc)
   - [Set ACL](#Set-ACL)
   - [Print all locks](#Print-all-locks)
@@ -190,6 +191,12 @@
     
     ``` console
     whsv26@whsv26:~$ google-drive-ocamlfuse $MOUNT_FOLDER
+    ```
+
+  - #### Locate file
+    
+    ``` console
+    whsv26@whsv26:~$ locate $FILE
     ```
 
 # Misc

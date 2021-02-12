@@ -52,3 +52,8 @@
   whsv26@whsv26:~$ google-drive-ocamlfuse $MOUNT_FOLDER
   ```
 
+- #### Locate file
+  ```console
+  whsv26@whsv26:~$ locate $FILE
+  ```
+  
