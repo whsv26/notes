@@ -54,6 +54,7 @@
 
 - #### Locate file
   ```console
+  whsv26@whsv26:~$ updatedb
   whsv26@whsv26:~$ locate $FILE
   ```
   
