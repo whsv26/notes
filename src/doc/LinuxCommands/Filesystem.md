@@ -57,4 +57,8 @@
   whsv26@whsv26:~$ updatedb
   whsv26@whsv26:~$ locate $FILE
   ```
-  
+
+- #### Search logs
+  ```console
+  whsv26@whsv26:~$ rg -m $MAX_LINES -M $MAX_COLUMNS --max-columns-preview "$PATTERN" $FILE
+  ```
