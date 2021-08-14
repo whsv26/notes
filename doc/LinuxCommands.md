@@ -23,6 +23,7 @@
   - [ISO to flash drive](#ISO-to-flash-drive)
   - [Formatting drive](#Formatting-drive)
   - [Format USB drive](#Format-USB-drive)
+  - [Cleanup whole USB drive](#Cleanup-whole-USB-drive)
   - [Mount Google Drive](#Mount-Google-Drive)
   - [Locate file](#Locate-file)
   - [Search logs](#Search-logs)
@@ -196,6 +197,15 @@
     └─sdc1   8:33   1   7,2G  0 part /media/whsv26/E0C9-E6FB
     whsv26@whsv26:~$ umount /dev/sdc1
     whsv26@whsv26:~$ mkfs.ext4 /dev/sdc1
+    ```
+
+  - #### Cleanup whole USB drive
+    
+    ```console
+    whsv26@whsv26:~$ lsblk
+    sdc      8:32   1   7,2G  0 disk 
+    └─sdc1   8:33   1   7,2G  0 part /media/whsv26/E0C9-E6FB
+    whsv26@whsv26:~$ dd if=/dev/zero of=/dev/sdc1 bs=1M
     ```
 
   - #### Mount Google Drive
