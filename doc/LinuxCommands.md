@@ -11,6 +11,9 @@
   - [Import a table from DB dump](#Import-a-table-from-DB-dump)
   - [Migrate from MySQL to PostgreSQL](#Migrate-from-MySQL-to-PostgreSQL)
 - [Docker](#Docker)
+  - [Show containers logs size](#Show-containers-logs-size)
+  - [Clean all container logs](#Clean-all-container-logs)
+  - [Update all images to the latest version](#Update-all-images-to-the-latest-version)
   - [Kill all running containers](#Kill-all-running-containers)
   - [Import to mysql container with progress bar](#Import-to-mysql-container-with-progress-bar)
   - [Psalm language server from docker container](#Psalm-language-server-from-docker-container)
@@ -56,6 +59,8 @@
   - [Watch processes by pattern](#Watch-processes-by-pattern)
   - [Detailed process RAM usage](#Detailed-process-RAM-usage)
 - [SSH](#SSH)
+  - [Create SSH key without passphrase (modern algorithm)](#Create-SSH-key-without-passphrase-(modern-algorithm))
+  - [Copy SSH key to remote server](#Copy-SSH-key-to-remote-server)
   - [Copy remote file](#Copy-remote-file)
   - [Upload to remote server](#Upload-to-remote-server)
   - [Open ssh-tunnel](#Open-ssh-tunnel)
@@ -122,6 +127,24 @@
     ```
 
 # Docker
+
+  - #### Show containers logs size
+    
+    ``` console
+    sudo sh -c "du -ch /var/lib/docker/containers/*/*-json.log" 
+    ```
+
+  - #### Clean all container logs
+    
+    ``` console
+    sudo sh -c "truncate -s 0 /var/lib/docker/containers/*/*-json.log" 
+    ```
+
+  - #### Update all images to the latest version
+    
+    ``` console
+    docker images --format "{{.Repository}}:{{.Tag}}" | grep --invert-match '<none>' | xargs -L1 docker pull
+    ```
 
   - #### Kill all running containers
     
@@ -387,6 +410,18 @@
     ```
 
 # SSH
+
+  - #### Create SSH key without passphrase (modern algorithm)
+    
+    ``` console
+    ssh-keygen -q -t ed25519 -N '' -C "My new key $(date -I)" -f ~/.ssh/id_myNewKey_ed25519
+    ```
+
+  - #### Copy SSH key to remote server
+    
+    ``` console
+    ssh-copy-id -i ~/.ssh/identity_file $USER@$HOST
+    ```
 
   - #### Copy remote file
     
