@@ -1,5 +1,20 @@
 # Docker
 
+- #### Show containers logs size
+  ```console
+  sudo sh -c "du -ch /var/lib/docker/containers/*/*-json.log" 
+  ```
+
+- #### Clean all container logs
+  ```console
+  sudo sh -c "truncate -s 0 /var/lib/docker/containers/*/*-json.log" 
+  ```
+
+- #### Update all images to the latest version
+  ```console
+  docker images --format "{{.Repository}}:{{.Tag}}" | grep --invert-match '<none>' | xargs -L1 docker pull
+  ```
+
 - #### Kill all running containers 
   ```console
   docker kill $(docker ps -q) 
