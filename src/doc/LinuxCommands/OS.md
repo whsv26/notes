@@ -2,31 +2,31 @@
 
 - #### Full system info
   ```console 
-  whsv26@whsv26:~$ dmidecode
+  dmidecode
   ``` 
 
 - #### CPU info
   ```console 
-  whsv26@whsv26:~$ lscpu
+  lscpu
   ``` 
 
 - #### RAM info
   ```console 
-  whsv26@whsv26:~$ dmidecode --type memory | less
+  dmidecode --type memory | less
   ``` 
 
 - #### Running services
   ```console 
-  whsv26@whsv26:~$ service --status-all
+  service --status-all
   ``` 
 
 - #### Show systemd logs
   ```console 
-  whsv26@whsv26:~$ journalctl
+  journalctl
   ``` 
 
 - #### Identify a kernel 
   [@see](https://ubuntu.com/kernel)
   ```console 
-  whsv26@whsv26:~$ cat /proc/version_signature
+  cat /proc/version_signature
   ``` 
