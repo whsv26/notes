@@ -3,7 +3,7 @@ PHP developer notes
 
 ## Contents
 - [Linux commands](doc/LinuxCommands.md)
-- [Shortcuts](doc/LinuxTools.md)
+- [Linux tools](doc/LinuxTools.md)
 - [Shortcuts](doc/Shortcuts.md)
 
 ## Contribution
